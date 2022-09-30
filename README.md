@@ -1,9 +1,8 @@
-###HelloWorld
+- HelloWorld
 ![HelloWorld](shotscreen/helloworld.png)
-
-###LayOut
+- LayOut
 ![LearLayOut](shotscreen/LearLayOut.png)
-###代码
+- 代码
 ``` LearLayOut
 <LinearLayout
         android:layout_width="match_parent"
@@ -213,7 +212,7 @@
         </LinearLayout>
     </LinearLayout>
 ```
-###TableLayOut
+ -TableLayOut
 ![TableLayOut](shotscreen/TableLayOut.png)
 ```TableLayOut
 <TableLayout
@@ -403,7 +402,7 @@
 
         </TableRow>
 ```
-###ConstraintLayOut
+ #### ConstraintLayOut
 ![ConstrainLayOut1](shotscreen/ConstrainLayOut1.png)
 ```
 <EditText
