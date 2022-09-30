@@ -1,9 +1,9 @@
-- HelloWorld
+ ## HelloWorld <br>
 ![HelloWorld](shotscreen/helloworld.png)
-- LayOut
+ ## LinearLayOut
 ![LearLayOut](shotscreen/LearLayOut.png)
 - 代码
-``` LearLayOut
+``` LinearLayOut
 <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -212,8 +212,9 @@
         </LinearLayout>
     </LinearLayout>
 ```
- -TableLayOut
-![TableLayOut](shotscreen/TableLayOut.png)
+ ## TableLayOut <br>
+![TableLayOut](shotscreen/TableLayOut.png) <br>
+- 代码
 ```TableLayOut
 <TableLayout
         android:layout_width="match_parent"
@@ -402,7 +403,7 @@
 
         </TableRow>
 ```
- #### ConstraintLayOut
+ ## ConstraintLayOut
 ![ConstrainLayOut1](shotscreen/ConstrainLayOut1.png)
 ```
 <EditText
@@ -674,8 +675,8 @@
         app:layout_constraintTop_toTopOf="@+id/textView31"
         app:layout_constraintVertical_bias="0.0" />
 ```
-###ConstraintLayOut2
-![ConstrainLayOut2](shotscreen/ConstrainLayOut2.png)
+ ## ConstraintLayOut2
+![ConstrainLayOut2](shotscreen/ConstrainLayOut2.png) <br>
 ```
 <ImageView
         android:id="@+id/imageView"
