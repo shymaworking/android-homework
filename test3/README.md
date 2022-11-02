@@ -28,3 +28,50 @@
         });
     }
 } ```
+  - 创建如图所示的自定义对话框
+![图片](screenshot/2.png)
+   1. 代码思路：用serView吧布局文件放到AlertDialog中
+   2. 关键代码：
+ ```         setContentView(R.layout.activity_main);
+        new AlertDialog.Builder(this)
+                .setView(R.layout.alertdialog)
+                .show();
+ ```
+  - 使用XML定义菜单
+![图片](screenshot/3.png)
+   1. 代码思路：嵌套menu
+   2. 关键代码：
+ ```        
+   switch (item.getItemId()) {
+                case R.id.menu_size_1:
+                    test.setTextSize(11);
+                    return true;
+                case R.id.menu_size_2:
+                    test.setTextSize(16);
+                    return true;
+                case R.id.menu_size_3:
+                    test.setTextSize(21);
+                    return true;
+                case R.id.menu_common:
+                    Toast.makeText(MainActivity2.this, "这是普通菜单项", Toast.LENGTH_SHORT).show();
+                    return true;
+                case R.id.menu_color_red:
+                    test.setTextColor(Color.RED);
+                    return true;
+                case R.id.menu_color_yellow:
+                    test.setTextColor(Color.YELLOW);
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+ ```
+ - 创建上下文操作模式(ActionMode)的上下文菜单
+![图片](screenshot/4.png)
+   1. 代码思路：利用actionMode
+   2. 关键代码：
+ ```        
+          	MenuInflater inflater = mode.getMenuInflater();
+                inflater.inflate(R.menu.problem04_action_mode, menu);
+                num = 0;
+                adapter.notifyDataSetChanged();
+                return true;
+ ```
