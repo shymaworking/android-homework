@@ -1,8 +1,9 @@
- #Android界面组件实验
- -利用SimpleAdapter实现如下界面效果
+ # Android界面组件实验
+ - 利用SimpleAdapter实现如下界面效果
 ![图片](screenshot/1.png)
    1. 代码思路：用simpleAdapter组装列表组件再将其放入列表中
-   2. 关键代码：```public class MainActivity4 extends AppCompatActivity {
+   2. 关键代码：
+```public class MainActivity4 extends AppCompatActivity {
     private String[] docs = new String[]{"Lion","Tiger","Monkey","Dog","Cat","elephant"};
     private int[] imgs = new int[]{R.drawable.lion, R.drawable.tiger,R.drawable.monkey,R.drawable.dog,R.drawable.cat,R.drawable.elephant};
     @SuppressLint("ResourceAsColor")
