@@ -27,7 +27,8 @@
             Toast.makeText(MainActivity4.this,s,Toast.LENGTH_SHORT).show();
         });
     }
-} ```
+}
+ ```
 
  - 创建如图所示的自定义对话框
 ![图片](screenshot/2.png)
