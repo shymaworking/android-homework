@@ -17,7 +17,7 @@
             android:name=".MainActivity3"
             android:exported="false" />
         <activity
-            android:name=".MainActivity4"
+            android:name=".problem04"
             android:exported="false" /> <!-- <meta-data -->
         <!-- android:name="com.google.android.menu" -->
         <!-- android:resource="@xml/menu/menu_2" /> -->
@@ -28,7 +28,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".problem04"
+            android:name=".MainActivity4"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

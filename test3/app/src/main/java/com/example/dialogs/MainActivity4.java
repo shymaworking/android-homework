@@ -36,19 +36,5 @@ public class MainActivity4 extends AppCompatActivity {
             String s = docs[i];
             Toast.makeText(MainActivity4.this,s,Toast.LENGTH_SHORT).show();
         });
-//        list.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                for(int j=0;j<adapterView.getCount();j++){
-//                    View v=adapterView.getChildAt(j);
-//                    v.setBackgroundColor(Color.BLACK);
-//                view.setBackgroundColor(R.color.purple_500);
-//                }
     }
-
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//            }
-//        });
 }
