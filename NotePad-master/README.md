@@ -1,9 +1,9 @@
 # NotePad
- ###时间戳
+ ### 时间戳
  1.思路：从数据库把修改时间拿出来
  2.运行截图：
- ! [时间戳](shotscreen/1.png)
- 3。关键代码：
+ ![时间戳](shotscreen/1.png)
+ 3.关键代码：
  ```
  private static final String[] PROJECTION = new String[] {
             NotePad.Notes._ID, // 0
@@ -15,11 +15,11 @@ String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE, NotePad.Notes.COLUMN_N
 
  int[] viewIDs = { android.R.id.text1,R.id.text2 };
  ```
- ###查找功能
+ ### 查找功能
  1.思路：从数据库把修改时间拿出来
  2.运行截图：
- ! [查找(shotscreen/2.png)
- 3。关键代码：
+ ![查找(shotscreen/2.png)
+ 3.关键代码：
  ```
  <SearchView
         android:id="@+id/sv_search"
