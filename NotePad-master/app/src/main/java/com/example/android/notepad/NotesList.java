@@ -26,6 +26,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -59,6 +60,7 @@ public class NotesList extends ListActivity {
             NotePad.Notes._ID, // 0
             NotePad.Notes.COLUMN_NAME_TITLE, // 1
             NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE,  //4
+            NotePad.Notes.COLUMN_NAME_BACK_COLOR
     };
 
     /** The index of the title column */
@@ -73,6 +75,7 @@ public class NotesList extends ListActivity {
 
         // The user does not need to hold down the key to use menu shortcuts.
         setDefaultKeyMode(DEFAULT_KEYS_SHORTCUT);
+        getWindow().setBackgroundDrawableResource(R.drawable.background);
 
         /* If no data is given in the Intent that started this Activity, then this Activity
          * was started when the intent filter matched a MAIN action. We should use the default
@@ -122,21 +125,21 @@ public class NotesList extends ListActivity {
         int[] viewIDs = { android.R.id.text1,R.id.text2 };
 
         // Creates the backing adapter for the ListView.
-        SimpleCursorAdapter adapter
-            = new SimpleCursorAdapter(
-                      this,                             // The Context for the ListView
-                      R.layout.noteslist_item,          // Points to the XML for a list item
-                      cursor,                           // The cursor to get items from
-                      dataColumns,
-                      viewIDs
-              );
-//        for (String s : dataColumns) {
-//            Log.d("cols",s);
-//        }
-//        for (int i:viewIDs) {
-//            TextView tv = findViewById(i);
-//            Log.d("tv_content",tv.getText().toString());
-//        }
+//        SimpleCursorAdapter adapter
+//            = new SimpleCursorAdapter(
+//                      this,                             // The Context for the ListView
+//                      R.layout.noteslist_item,          // Points to the XML for a list item
+//                      cursor,                           // The cursor to get items from
+//                      dataColumns,
+//                      viewIDs
+//              );
+        MyCursorAdapter adapter = new MyCursorAdapter(
+                this,
+                R.layout.noteslist_item,
+                cursor,
+                dataColumns,
+                viewIDs
+        );
 
         // Sets the ListView's adapter to be the cursor adapter that was just created.
         setListAdapter(adapter);
@@ -160,6 +163,8 @@ public class NotesList extends ListActivity {
         // Inflate menu from XML resource
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.list_options_menu, menu);
+        MenuItemCompat.setShowAsAction(menu.findItem(R.id.menu_find),MenuItemCompat.SHOW_AS_ACTION_ALWAYS);
+        MenuItemCompat.setShowAsAction(menu.findItem(R.id.menu_add),MenuItemCompat.SHOW_AS_ACTION_ALWAYS);
 
         // Generate any additional actions that can be performed on the
         // overall list.  In a normal install, there are no additional
@@ -284,6 +289,11 @@ public class NotesList extends ListActivity {
            */
           startActivity(new Intent(Intent.ACTION_PASTE, getIntent().getData()));
           return true;
+
+            case R.id.menu_find:
+                startActivity(new Intent(this, SearchNotes.class));
+                return true;
+
         default:
             return super.onOptionsItemSelected(item);
         }
@@ -432,9 +442,7 @@ public class NotesList extends ListActivity {
   
             // Returns to the caller and skips further processing.
             return true;
-            case R.id.menu_find:
-                startActivity(new Intent(this, SearchNotes.class));
-                return true;
+
         default:
             return super.onContextItemSelected(item);
         }

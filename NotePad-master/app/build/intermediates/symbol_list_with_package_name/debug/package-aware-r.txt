@@ -510,6 +510,11 @@ color bright_foreground_material_dark
 color bright_foreground_material_light
 color button_material_dark
 color button_material_light
+color colorBlue
+color colorGreen
+color colorRed
+color colorWhite
+color colorYellow
 color dim_foreground_disabled_material_dark
 color dim_foreground_disabled_material_light
 color dim_foreground_material_dark
@@ -755,6 +760,7 @@ drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable app_notes
+drawable background
 drawable ic_menu_compose
 drawable ic_menu_delete
 drawable ic_menu_edit
@@ -838,6 +844,11 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id color_blue
+id color_green
+id color_red
+id color_white
+id color_yellow
 id content
 id contentPanel
 id context_copy
@@ -904,11 +915,13 @@ id listMode
 id list_item
 id lv_search
 id menu_add
+id menu_color
 id menu_delete
 id menu_find
 id menu_paste
 id menu_revert
 id menu_save
+id menu_storage
 id message
 id middle
 id motion_base
@@ -939,6 +952,10 @@ id reverseSawtooth
 id right
 id right_icon
 id right_side
+id s_bt_cancel
+id s_bt_confirm
+id s_et
+id s_tx
 id sawtooth
 id screen
 id scrollIndicatorDown
@@ -1037,7 +1054,8 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
-layout activity_find_notes
+layout find_notes
+layout note_color
 layout note_editor
 layout noteslist_item
 layout notification_action
@@ -1049,6 +1067,7 @@ layout notification_template_part_time
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
+layout storage
 layout support_simple_spinner_dropdown_item
 layout title_editor
 menu editor_options_menu
@@ -1099,6 +1118,7 @@ string error_message
 string error_title
 string live_folder_name
 string menu_add
+string menu_color
 string menu_copy
 string menu_delete
 string menu_find
@@ -1106,6 +1126,7 @@ string menu_open
 string menu_paste
 string menu_revert
 string menu_save
+string menu_storage
 string nothing_to_save
 string resolve_edit
 string resolve_title
@@ -1462,6 +1483,7 @@ style Widget_AppCompat_Toolbar_Button_Navigation
 style Widget_Compat_NotificationActionContainer
 style Widget_Compat_NotificationActionText
 style Widget_Support_CoordinatorLayout
+style dialog
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth

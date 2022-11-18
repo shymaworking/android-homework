@@ -1,20 +1,17 @@
 package com.example.android.notepad;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.view.View;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SimpleCursorAdapter;
 
 import com.example.android.notepad.util.MyDBHelper;
 import com.example.android.notepad.util.Toast;
-
-import java.util.List;
 
 public class SearchNotes extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
@@ -31,7 +28,8 @@ public class SearchNotes extends AppCompatActivity implements SearchView.OnQuery
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_find_notes);
+//        ProgressDialog dialog = new ProgressDialog(this, R.style.dialog);
+        setContentView(R.layout.find_notes);
         Intent intent = getIntent();
         if (intent.getData() == null) {
             intent.setData(NotePad.Notes.CONTENT_URI);
@@ -52,7 +50,7 @@ public class SearchNotes extends AppCompatActivity implements SearchView.OnQuery
 
     @Override
     public boolean onQueryTextChange(String s) {
-        String selection1 = NotePad.Notes.COLUMN_NAME_TITLE+" like ? or "+NotePad.Notes.COLUMN_NAME_NOTE+" like ?";
+        String selection1 = NotePad.Notes.COLUMN_NAME_TITLE+" like ? or "+NotePad.Notes.COLUMN_NAME_NOTE+" like ? ";
         String[] selection2 = {"%"+s+"%","%"+s+"%"};
         Cursor cursor = rDB.query(
                 NotePad.Notes.TABLE_NAME,

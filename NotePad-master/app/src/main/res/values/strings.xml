@@ -39,5 +39,7 @@
     <string name="error_title">Error</string>
     <string name="error_message">Error loading note</string>
     <string name="nothing_to_save">There is nothing to save</string>
-    <string name="menu_find">查找</string>
+    <string name="menu_find">Search</string>
+    <string name="menu_color">Color</string>
+    <string name="menu_storage">Storage</string>
 </resources>

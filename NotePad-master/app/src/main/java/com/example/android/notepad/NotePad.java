@@ -28,6 +28,7 @@ import android.provider.BaseColumns;
 public final class NotePad {
     public static final String AUTHORITY = "com.google.provider.NotePad";
 
+
     // This class cannot be instantiated
     private NotePad() {
     }
@@ -37,6 +38,13 @@ public final class NotePad {
      */
     public static final class Notes implements BaseColumns {
 
+
+
+        public static final int DEFAULT_COLOR = 0; //white
+        public static final int YELLOW_COLOR = 1; //yellow
+        public static final int BLUE_COLOR = 2; //blue
+        public static final int GREEN_COLOR = 3; //green
+        public static final int RED_COLOR = 4; //red
         // This class cannot be instantiated
         private Notes() {}
 
@@ -44,6 +52,7 @@ public final class NotePad {
          * The table name offered by this provider
          */
         public static final String TABLE_NAME = "notes";
+
 
         /*
          * URI definitions
@@ -144,11 +153,11 @@ public final class NotePad {
          * <P>Type: INTEGER (long from System.curentTimeMillis())</P>
          */
         public static final String COLUMN_NAME_CREATE_DATE = "created";
-
         /**
          * Column name for the modification timestamp
          * <P>Type: INTEGER (long from System.curentTimeMillis())</P>
          */
         public static final String COLUMN_NAME_MODIFICATION_DATE = "modified";
+        public static final String COLUMN_NAME_BACK_COLOR = "color";
     }
 }

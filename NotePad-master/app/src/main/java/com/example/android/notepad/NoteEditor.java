@@ -31,6 +31,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Menu;
@@ -83,55 +84,56 @@ public class NoteEditor extends Activity {
     /**
      * Defines a custom EditText View that draws lines between each line of text that is displayed.
      */
-    public static class LinedEditText extends EditText {
-        private Rect mRect;
-        private Paint mPaint;
-
-        // This constructor is used by LayoutInflater
-        public LinedEditText(Context context, AttributeSet attrs) {
-            super(context, attrs);
-
-            // Creates a Rect and a Paint object, and sets the style and color of the Paint object.
-            mRect = new Rect();
-            mPaint = new Paint();
-            mPaint.setStyle(Paint.Style.STROKE);
-            mPaint.setColor(0x800000FF);
-        }
-
-        /**
-         * This is called to draw the LinedEditText object
-         * @param canvas The canvas on which the background is drawn.
-         */
-        @Override
-        protected void onDraw(Canvas canvas) {
-
-            // Gets the number of lines of text in the View.
-            int count = getLineCount();
-
-            // Gets the global Rect and Paint objects
-            Rect r = mRect;
-            Paint paint = mPaint;
-
-            /*
-             * Draws one line in the rectangle for every line of text in the EditText
-             */
-            for (int i = 0; i < count; i++) {
-
-                // Gets the baseline coordinates for the current line of text
-                int baseline = getLineBounds(i, r);
-
-                /*
-                 * Draws a line in the background from the left of the rectangle to the right,
-                 * at a vertical position one dip below the baseline, using the "paint" object
-                 * for details.
-                 */
-                canvas.drawLine(r.left, baseline + 1, r.right, baseline + 1, paint);
-            }
-
-            // Finishes up by calling the parent method
-            super.onDraw(canvas);
-        }
-    }
+//    public static class LinedEditText extends android.support.v7.widget.AppCompatEditText {
+//        private Rect mRect;
+//        private Paint mPaint;
+//
+//        // This constructor is used by LayoutInflater
+//        public LinedEditText(Context context, AttributeSet attrs) {
+//            super(context, attrs);
+//
+//            // Creates a Rect and a Paint object, and sets the style and color of the Paint object.
+//            mRect = new Rect();
+//            mPaint = new Paint();
+//            mPaint.setStyle(Paint.Style.STROKE);
+//            mPaint.setColor(0x800000FF);
+//        }
+//
+//        /**
+//         * This is called to draw the LinedEditText object
+//         * @param canvas The canvas on which the background is drawn.
+//         */
+//        @Override
+//        protected void onDraw(Canvas canvas) {
+//
+//            // Gets the number of lines of text in the View.
+//            int count = getLineCount();
+//
+//            // Gets the global Rect and Paint objects
+//            Rect r = mRect;
+//            Paint paint = mPaint;
+//
+//            /*
+//             * Draws one line in the rectangle for every line of text in the EditText
+//             */
+//            for (int i = 0; i < count; i++) {
+//
+//                // Gets the baseline coordinates for the current line of text
+//                int baseline = getLineBounds(i, r);
+//
+//                /*
+//                 * Draws a line in the background from the left of the rectangle to the right,
+//                 * at a vertical position one dip below the baseline, using the "paint" object
+//                 * for details.
+//                 */
+//                canvas.drawLine(r.left, baseline + 1, r.right, baseline + 1, paint);
+//            }
+//
+//            // Finishes up by calling the parent method
+//            super.onDraw(canvas);
+//        }
+//    }
+//    }
 
     /**
      * This method is called by Android when the Activity is first started. From the incoming
@@ -391,8 +393,10 @@ public class NoteEditor extends Activity {
         // Inflate menu from XML resource
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.editor_options_menu, menu);
-
-        // Only add extra menu items for a saved note 
+        MenuItemCompat.setShowAsAction(menu.findItem(R.id.menu_save),MenuItemCompat.SHOW_AS_ACTION_ALWAYS);
+        MenuItemCompat.setShowAsAction(menu.findItem(R.id.menu_color),MenuItemCompat.SHOW_AS_ACTION_ALWAYS);
+//        MenuItemCompat.setShowAsAction(menu.findItem(R.id.menu_delete),MenuItemCompat.SHOW_AS_ACTION_ALWAYS);
+        // Only add extra menu items for a saved note
         if (mState == STATE_EDIT) {
             // Append to the
             // menu items for any other activities that can do stuff with it
@@ -447,8 +451,29 @@ public class NoteEditor extends Activity {
         case R.id.menu_revert:
             cancelNote();
             break;
+        case R.id.menu_color:
+            changeColor();
+            break;
+        case R.id.menu_storage:
+            store();
+            break;
         }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    private final void store() {
+        Intent intent = new Intent();
+        intent.putExtra("Content",mText.getText().toString());
+        intent.setClass(NoteEditor.this,Storage.class);
+        Log.d("store", "1");
+        NoteEditor.this.startActivity(intent);
+    }
+
+    private final void changeColor() {
+        Intent intent = new Intent(null,mUri);
+        intent.setClass(NoteEditor.this,NoteColor.class);
+        NoteEditor.this.startActivity(intent);
     }
 
 //BEGIN_INCLUDE(paste)
