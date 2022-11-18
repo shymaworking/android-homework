@@ -50,8 +50,8 @@ String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE, NotePad.Notes.COLUMN_N
  ### 导出笔记
  1.思路： 把笔记以文件的形式写入外部存储<br>
  2.运行截图：
- ![导出](shotscreen/3.png)
- ![导出](shotscreen/4.png)
+ ![导出](shotscreen/3.jpg)
+ ![导出](shotscreen/4.jpg)
  3.关键代码：<br>
  ```
 String filename = et.getText().toString();
@@ -70,8 +70,8 @@ String filename = et.getText().toString();
 ### 改变listview的item的背景颜色
  1.思路： 动态设置颜色<br>
  2.运行截图：
- ![导出](shotscreen/5.png)
- ![导出](shotscreen/6.png)
+ ![导出](shotscreen/5.jpg)
+ ![导出](shotscreen/6.jpg)
  3.关键代码：<br>
  ```
 super.bindView(view, context, cursor);//绑定视图
